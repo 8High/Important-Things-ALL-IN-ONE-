@@ -1,0 +1,115 @@
+[gd_scene load_steps=3 format=3 uid="uid://x0d3qinyn3p5"]
+
+[ext_resource type="Theme" uid="uid://cv08wrelexcpi" path="res://Themes/themes/Main_menu_theme.tres" id="1_4ysn1"]
+[ext_resource type="Script" path="res://Scripts/Animation_Component.gd" id="2_j67ei"]
+
+[node name="All_over_menu_container" type="CenterContainer"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 904.0
+offset_right = 152.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [-429.0]
+
+[node name="Menu_panel_Container" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme = ExtResource("1_4ysn1")
+
+[node name="AnimationComponent" type="Node" parent="Menu_panel_Container"]
+script = ExtResource("2_j67ei")
+enter_animation = true
+enter_transition = 9
+enter_easing = 2
+enter_scale = Vector2(0, 0)
+enter_modulate = Color(1, 1, 1, 0)
+
+[node name="Menu_Container" type="VBoxContainer" parent="Menu_panel_Container"]
+layout_mode = 2
+theme = ExtResource("1_4ysn1")
+
+[node name="Main_menu_label" type="Label" parent="Menu_panel_Container/Menu_Container"]
+layout_mode = 2
+theme = ExtResource("1_4ysn1")
+text = "MAIN MENU"
+horizontal_alignment = 1
+
+[node name="Play_new" type="Button" parent="Menu_panel_Container/Menu_Container"]
+layout_mode = 2
+theme = ExtResource("1_4ysn1")
+theme_type_variation = &"Main_menu_play_button"
+text = "New game "
+
+[node name="AnimationComponent" type="Node" parent="Menu_panel_Container/Menu_Container/Play_new" node_paths=PackedStringArray("wait_for")]
+script = ExtResource("2_j67ei")
+enter_animation = true
+hover_transition = 9
+hover_easing = 2
+hover_scale = Vector2(1.1, 1.1)
+hover_modulate = Color(1, 1, 0.294118, 1)
+wait_for = NodePath("../../../AnimationComponent")
+enter_time = 0.2
+enter_transition = 10
+enter_scale = Vector2(1.5, 1)
+
+[node name="Play" type="Button" parent="Menu_panel_Container/Menu_Container"]
+layout_mode = 2
+text = "Continue "
+
+[node name="AnimationComponent2" type="Node" parent="Menu_panel_Container/Menu_Container/Play" node_paths=PackedStringArray("wait_for")]
+script = ExtResource("2_j67ei")
+enter_animation = true
+hover_transition = 9
+hover_easing = 2
+hover_scale = Vector2(1.1, 1.1)
+hover_modulate = Color(1, 1, 0.294118, 1)
+wait_for = NodePath("../../Play_new/AnimationComponent")
+enter_time = 0.2
+enter_transition = 10
+enter_scale = Vector2(1.5, 1.5)
+
+[node name="Settings" type="Button" parent="Menu_panel_Container/Menu_Container"]
+layout_mode = 2
+text = "Settings "
+
+[node name="AnimationComponent3" type="Node" parent="Menu_panel_Container/Menu_Container/Settings" node_paths=PackedStringArray("wait_for")]
+script = ExtResource("2_j67ei")
+enter_animation = true
+hover_transition = 9
+hover_easing = 2
+hover_scale = Vector2(1.1, 1.1)
+hover_modulate = Color(1, 1, 0.294118, 1)
+wait_for = NodePath("../../Play/AnimationComponent2")
+enter_time = 0.2
+enter_transition = 10
+enter_scale = Vector2(1.5, 1.5)
+
+[node name="Quit" type="Button" parent="Menu_panel_Container/Menu_Container"]
+layout_mode = 2
+text = "Quit"
+
+[node name="AnimationComponent4" type="Node" parent="Menu_panel_Container/Menu_Container/Quit" node_paths=PackedStringArray("wait_for")]
+script = ExtResource("2_j67ei")
+enter_animation = true
+hover_transition = 9
+hover_easing = 2
+hover_scale = Vector2(1.1, 1.1)
+hover_modulate = Color(1, 1, 0.294118, 1)
+wait_for = NodePath("../../Settings/AnimationComponent3")
+enter_time = 0.2
+enter_transition = 10
+enter_scale = Vector2(1.5, 1.5)
+
+[node name="Credits" type="Button" parent="Menu_panel_Container/Menu_Container"]
+layout_mode = 2
+theme = ExtResource("1_4ysn1")
+text = "Credits "
+
+[node name="Support" type="Button" parent="Menu_panel_Container/Menu_Container"]
+layout_mode = 2
+theme = ExtResource("1_4ysn1")
+text = "Support"

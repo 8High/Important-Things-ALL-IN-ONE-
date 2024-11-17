@@ -1,0 +1,361 @@
+[gd_scene load_steps=11 format=3 uid="uid://brpvsnj64o5pi"]
+
+[ext_resource type="Texture2D" uid="uid://clprna1dqdixf" path="res://Resources/Textures/skybox/noon_sky.png" id="1_thptj"]
+[ext_resource type="Material" uid="uid://cn1gsy15bkaff" path="res://Others/materials/grid.tres" id="2_jgjpy"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="4_6cl8e"]
+[ext_resource type="Texture2D" uid="uid://2bxvhsff88av" path="res://Resources/Textures/ui_textures/White/Jump_up(white)/jump_up(white).png" id="5_oxysu"]
+[ext_resource type="Texture2D" uid="uid://cahjg616t0ei4" path="res://Resources/Textures/ui_textures/White/Sprint_forward(white)/sprint_forward(white).png" id="6_6hhxx"]
+[ext_resource type="Texture2D" uid="uid://b70isqe2jbtyv" path="res://Resources/Textures/ui_textures/White/Crouch_down(white)/crouch_down(white).png" id="6_qjngn"]
+[ext_resource type="PackedScene" uid="uid://7jv3juqyoc8e" path="res://Scenes/Player.tscn" id="7_il1m2"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_68lef"]
+panorama = ExtResource("1_thptj")
+
+[sub_resource type="Sky" id="Sky_cnq8c"]
+sky_material = SubResource("PanoramaSkyMaterial_68lef")
+
+[sub_resource type="Environment" id="Environment_xgipg"]
+background_mode = 2
+sky = SubResource("Sky_cnq8c")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node3D"]
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_xgipg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Stage" type="Node" parent="."]
+
+[node name="Platform" type="CSGBox3D" parent="Stage"]
+use_collision = true
+size = Vector3(20, 0.5, 20)
+material = ExtResource("2_jgjpy")
+
+[node name="Wall" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 5, -6)
+use_collision = true
+size = Vector3(12, 0.5, 10)
+material = ExtResource("2_jgjpy")
+
+[node name="jump" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99548, 0.769132, -4.00391)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump2" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99548, 1.57875, 0.70818)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump3" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5385, 2.0461, 0.70818)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump4" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5385, 2.33385, -3.84853)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump5" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5385, 2.7136, -8.39795)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump6" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.77969, 3.06055, -8.39795)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump7" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.77969, 3.6809, -3.9623)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump8" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.77969, 4.4733, 0.467899)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump9" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2639, 4.76871, 0.467899)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump10" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2639, 5.08454, -3.96535)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump11" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2639, 5.60315, -8.05906)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump12" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81037, 6.33866, -7.90403)
+use_collision = true
+size = Vector3(4, 0.2, 4.31006)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump13" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81037, 6.96857, -3.60311)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump18" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07517, 5.02294, -3.60311)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump19" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9912, 6.94115, -3.60311)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump20" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0225, 8.88162, -3.60311)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump14" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.81037, 7.2849, 0.584506)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump15" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.02614, 3.80295, 3.56066)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump16" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.02614, 2.02309, -0.377727)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="jump17" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.02614, 1.17849, -12.7573)
+use_collision = true
+size = Vector3(4, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/jump17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Jump"
+font_size = 100
+
+[node name="crouch" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01989, 2.04025, -8.2469)
+use_collision = true
+size = Vector3(10, 0.2, 4)
+material = ExtResource("2_jgjpy")
+
+[node name="Text" type="Label3D" parent="Stage/crouch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+text = "Crouch"
+font_size = 100
+
+[node name="ramp" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.584293, 7.29963, 3.58188)
+use_collision = true
+size = Vector3(10, 0.2, 10)
+material = ExtResource("2_jgjpy")
+
+[node name="ramp2" type="CSGBox3D" parent="Stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.91263, 9.92651, -11.2497)
+use_collision = true
+size = Vector3(10, 0.2, 10)
+material = ExtResource("2_jgjpy")
+
+[node name="Characters" type="Node" parent="."]
+
+[node name="Player" parent="Characters" instance=ExtResource("7_il1m2")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Characters"]
+follow_viewport_enabled = true
+
+[node name="Crouch" type="TouchScreenButton" parent="Characters/CanvasLayer"]
+position = Vector2(41.0001, 94)
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("6_qjngn")
+action = "Crouch"
+
+[node name="Jump" type="TouchScreenButton" parent="Characters/CanvasLayer"]
+position = Vector2(1216, 320)
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("5_oxysu")
+action = "Jump"
+
+[node name="Sprint" type="TouchScreenButton" parent="Characters/CanvasLayer"]
+position = Vector2(87, 235)
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("6_6hhxx")
+passby_press = true
+action = "Sprint"
+
+[node name="Peak(RIGHT)" type="TouchScreenButton" parent="Characters/CanvasLayer"]
+position = Vector2(1216, 64)
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("5_oxysu")
+action = "Peak(RIGHT)"
+
+[node name="Peak(LEFT)" type="TouchScreenButton" parent="Characters/CanvasLayer"]
+position = Vector2(1344, 64)
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("5_oxysu")
+action = "Peak(LEFT)"
+
+[node name="Debug" type="TouchScreenButton" parent="Characters/CanvasLayer"]
+position = Vector2(1216, 512)
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("5_oxysu")
+action = "Debug"
+
+[node name="Virtual Joystick" parent="Characters/CanvasLayer" instance=ExtResource("4_6cl8e")]
+offset_top = -300.0
+offset_bottom = 0.0
+action_left = "Left"
+action_right = "Right"
+action_up = "Forward"
+action_down = "Backward"

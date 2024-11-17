@@ -1,0 +1,75 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Player"
+run/main_scene="res://Scenes/World.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
+[display]
+
+window/vsync/vsync_mode=0
+
+[editor]
+
+movie_writer/disable_vsync=true
+
+[input]
+
+Forward={
+"deadzone": 0.5,
+"events": []
+}
+Backward={
+"deadzone": 0.5,
+"events": []
+}
+Left={
+"deadzone": 0.5,
+"events": []
+}
+Right={
+"deadzone": 0.5,
+"events": []
+}
+Sprint={
+"deadzone": 0.5,
+"events": []
+}
+Jump={
+"deadzone": 0.5,
+"events": []
+}
+Crouch={
+"deadzone": 0.5,
+"events": []
+}
+Peak(LEFT)={
+"deadzone": 0.5,
+"events": []
+}
+Peak(RIGHT)={
+"deadzone": 0.5,
+"events": []
+}
+Debug={
+"deadzone": 0.5,
+"events": []
+}
+
+[rendering]
+
+renderer/rendering_method="mobile"

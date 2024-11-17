@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd5siqdxg11sr"]
+
+[ext_resource type="Script" path="res://Scripts/splash_screen.gd" id="1_8swv7"]
+[ext_resource type="Texture2D" uid="uid://bta7utsfgtu14" path="res://Resources/Textures/ui_textures/The logo/Logo.png" id="1_g8l65"]
+[ext_resource type="PackedScene" uid="uid://x0d3qinyn3p5" path="res://Scenes/Important/Main_menu.tscn" id="2_tjokx"]
+[ext_resource type="Theme" uid="uid://cmbhhmcn1s734" path="res://Themes/styleboxes/Skip_button.tres" id="4_1rhd3"]
+
+[node name="Splash_screen_control" type="Control" node_paths=PackedStringArray("splash_screen_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8swv7")
+load_scene = ExtResource("2_tjokx")
+splash_screen_container = NodePath("Logo_container")
+
+[node name="background_color" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Logo_container" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="Logo_container"]
+layout_mode = 2
+texture = ExtResource("1_g8l65")
+
+[node name="Logo2" type="TextureRect" parent="Logo_container"]
+layout_mode = 2
+texture = ExtResource("1_g8l65")
+flip_h = true
+
+[node name="Logo3" type="TextureRect" parent="Logo_container"]
+layout_mode = 2
+texture = ExtResource("1_g8l65")
+flip_v = true
+
+[node name="Skip" type="Button" parent="."]
+modulate = Color(0.918091, 0.918091, 0.918091, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -156.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("4_1rhd3")
+text = "Skip"
